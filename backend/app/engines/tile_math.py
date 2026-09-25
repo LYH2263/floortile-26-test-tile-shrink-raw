@@ -16,7 +16,7 @@ def tile_count(
     """
     area = float(room_l) * float(room_w)
     piece = float(tile_l) * float(tile_w)
-    if piece <= 0 or area < 0:
+    if piece <= 0 or float(tile_l) <= 0 or float(tile_w) <= 0 or area < 0:
         raise ValueError("invalid dimensions")
     raw = ceil_units(area / piece)
     with_waste = ceil_units(raw * (1 + float(waste_pct) / 100.0))
